@@ -7,11 +7,6 @@ from math import sqrt
 from queue import PriorityQueue
 from gridutil import generate_locations
 
-ACTION_COSTS = {
-    'turnleft': 5,
-    'turnright': 2,
-    'forward': 1
-}
 class Agent:
     def __init__(self, size, walls, loc, dir, goal):
         self.size = size
@@ -60,6 +55,9 @@ class Agent:
         def heuristic(a, b):
             # Euclidian distance
             return sqrt((a[0] - b[0])*(a[0] - b[0]) + (a[1] - b[1])*(a[1] - b[1]))
+        
+        directions = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+        
         s = self.loc
         g = self.goal
         nodes = self.locations_to_graph()
@@ -102,8 +100,8 @@ class Agent:
                 elif nh[1] > cur_n[1]:
                     new_cost = cost[cur_n] + 1
                 else:
-                    new_cost = cost[cur_n] + 4
-                # rozważ nową ścieżkę tylko wtedy, gdy jest lepsza niż dotychczas najlepsze ścieżka
+                    new_cost = cost[cur_n] + 4 # ruch do tyłu czyli dwa obroty w prawo 
+                    
                 if new_cost < old_cost:
                     # zaktualizuj wartość sąsiada w słowniku kosztów
                     cost[nh] = new_cost
@@ -115,44 +113,51 @@ class Agent:
                     q.put((priority, nh))
         # odtwórz ścieżkę
         path = []
+        actions = []
+        direct_table = []
         cur_n = g
+        dir_vector = {(0, 1): 'N', (0, -1): 'S', (1, 0): 'E', (-1, 0): 'W'}
+
+        DIRECTION_ACTIONS = {
+            # (current, next): [actions]
+            ('N', 'E'): ['turnright', 'forward'],
+            ('N', 'W'): ['turnleft', 'forward'],
+            ('E', 'S'): ['turnright', 'forward'],
+            ('E', 'N'): ['turnleft', 'forward'],
+            ('S', 'W'): ['turnright', 'forward'],
+            ('S', 'E'): ['turnleft', 'forward'],
+            ('W', 'N'): ['turnright', 'forward'],
+            ('W', 'S'): ['turnleft', 'forward'],
+        }
+        
         while cur_n is not None:
             path.append(cur_n)
+            if parent[cur_n] != None:
+                par_x = parent[cur_n][0]
+                par_y = parent[cur_n][1]
+                cur_x = cur_n[0]
+                cur_y = cur_n[1]
+                direct_table.append(dir_vector[(cur_x - par_x, cur_y - par_y)])
             cur_n = parent[cur_n]
+        
+        direct_table.append('N')
+        direct_table.reverse()
+        for i in range(len(direct_table) - 1):
+            current_dir = direct_table[i]
+            next_dir = direct_table[i + 1]
+            if current_dir == next_dir:
+                actions.append('forward')
+            else:
+                actions.extend(DIRECTION_ACTIONS.get((current_dir, next_dir)))
+        
         path.reverse()
+        print(direct_table)
         print(path)
-        return path
+        print(actions)        
+        return path, actions
 
     def find_path(self):
-        path = []
-        actions = []
-        
-        # find path from sel.loc to self.goal
-        # TODO PUT YOUR CODE HERE
-        path = self.a_star_algo()
-        for locs in path:
-            action = ''
-            if locs[0] > self.loc[0]:
-                action = 'E'
-                self.loc = locs
-                self.dir = 'E'
-            elif locs[0] < self.loc[0]:
-                action = 'W'
-                self.loc = locs
-                self.dir = 'W'
-            elif locs[1] < self.loc[1]:
-                action = 'S'
-                self.loc = locs
-                self.dir = 'S'
-            elif locs[1] > self.loc[1]:
-                action = 'N'
-                self.loc = locs
-                self.dir = 'N'
-            if action != '':
-                actions.append(action)
-        print(actions)
-        # ------------------
-
+        path, actions = self.a_star_algo()
         return path, actions
 
     def get_path(self):

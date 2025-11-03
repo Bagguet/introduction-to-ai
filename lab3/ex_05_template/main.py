@@ -55,8 +55,9 @@ def main():
 
     # create the agent
     agent = Agent(env.size, env.walls, env.agent_loc, env.agent_dir, goal)
-    t = 0
+    t = 0.0
     while env.agent_loc != goal:
+        print('elapsed time %f' % -t)
 
         # get agent's path
         path = agent.get_path()
@@ -70,9 +71,9 @@ def main():
         # uncomment to pause before action
         view.pause()
 
-        env.do_action(action)
+        action_cost = env.do_action(action)
 
-        t += 1
+        t += action_cost
 
     # pause until mouse clicked
     view.pause()
