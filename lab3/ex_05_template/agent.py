@@ -93,6 +93,8 @@ class Agent:
                 # pobierz koszt sąsiada lub przypisz mu inf
                 old_cost = cost[nh]
                 # oblicz koszt dla danego wierzchołka
+                actual_dir = self.dir
+                
                 if nh[0] > cur_n[0]:
                     new_cost = cost[cur_n] + 2
                 elif nh[0] < cur_n[0]:
