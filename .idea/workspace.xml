@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55a8f344-6bc8-49c6-9fe8-fec705549256" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/put-wdsi" beforeDir="false" afterPath="$PROJECT_DIR$/template/put-wdsi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/put-wdsi/wdsi/lab_01/ex_04_template/agent.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/put-wdsi/wdsi/lab_01/ex_04_template/env.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/put-wdsi/wdsi/lab_01/ex_04_template/graphics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/put-wdsi/wdsi/lab_01/ex_04_template/gridutil.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/put-wdsi/wdsi/lab_01/ex_04_template/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/put-wdsi/wdsi/lab_01/ex_05_template/agent.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/put-wdsi/wdsi/lab_01/ex_05_template/env.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/put-wdsi/wdsi/lab_01/ex_05_template/graphics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/put-wdsi/wdsi/lab_01/ex_05_template/gridutil.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/put-wdsi/wdsi/lab_01/ex_05_template/main.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,6 +22,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Bagguet"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Bagguet/introduction-to-ai.git",
+    "accountId": "aca49521-337b-48e5-b2c2-0620d8559abb"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -20,17 +42,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-09665e90c3a7-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.15026.15" />
+        <option value="bundled-python-sdk-ce6832f46686-7b97d883f26b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.25557.178" />
       </set>
     </attachedChunks>
   </component>
